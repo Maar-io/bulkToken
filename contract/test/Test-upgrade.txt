@@ -1,0 +1,14 @@
+npx hardhat run --network shibuya scripts/upgrade.js
+npx hardhat console --network shibuya
+> const BoxV2 = await ethers.getContractFactory("BoxV2")
+undefined
+> const boxV2 = await BoxV2.attach("0xf07D0631adB3F2B4a5C7128F57186178D9e4e964")
+undefined
+> (await boxV2.retrieve()).toString()
+'42'
+> await boxV2.increment()
+{ hash:
+...
+> (await boxV2.retrieve()).toString()
+'43'
+> implAddr = await upgrades.erc1967.getImplementationAddress("0xf07D0631adB3F2B4a5C7128F57186178D9e4e964")
