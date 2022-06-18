@@ -1,7 +1,7 @@
 npx hardhat console --network shibuya
-> const Box = await ethers.getContractFactory("Box")
+> const BulkToken = await ethers.getContractFactory("BulkToken")
 undefined
-> const box = await Box.attach("0xf07D0631adB3F2B4a5C7128F57186178D9e4e964")
+> const bulkToken = await BulkToken.attach("0xf07D0631adB3F2B4a5C7128F57186178D9e4e964")
 undefined
-> (await box.retrieve()).toString()
+> (await bulkToken.retrieve()).toString()
 '42'
