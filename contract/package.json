@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "@openzeppelin/contracts": "^4.6.0",
     "@openzeppelin/hardhat-upgrades": "^1.19.0",
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.4",
