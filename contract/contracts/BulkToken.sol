@@ -3,7 +3,6 @@ pragma solidity ^0.8.15;
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "hardhat/console.sol";
 
 abstract contract ERC721Interface {
     function transferFrom(address _from, address _to, uint256 _tokenId) public virtual;
@@ -68,7 +67,7 @@ contract BulkToken is Initializable, OwnableUpgradeable {
         require(_beneficiary.length == _tokenIds.length, "The number of beneficiaries and the number of tokens are not equal");
         ERC721Interface erc721 = ERC721Interface(_nftAddress);
 
-        for(uint i = 0; i < _beneficiary.length; i++) {
+        for (uint i = 0; i < _beneficiary.length; i++) {
             erc721.transferFrom(msg.sender, _beneficiary[i], _tokenIds[i]);
             usageCnt.increment();
         }

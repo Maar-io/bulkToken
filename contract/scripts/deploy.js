@@ -1,9 +1,9 @@
 // scripts/deploy.js
 async function main() {
-    const Box = await ethers.getContractFactory("Box");
-    console.log("Deploying Box...");
-    const box = await upgrades.deployProxy(Box, [42], { initializer: 'store' });
-    console.log("Box deployed to:", box.address);
+    const BulkToken = await ethers.getContractFactory("BulkToken");
+    console.log("Deploying BulkToken...");
+    const proxy = await upgrades.deployProxy(BulkToken);
+    console.log("BulkToken deployed to:", proxy.address);
   }
 
   main()
