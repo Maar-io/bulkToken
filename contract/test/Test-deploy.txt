@@ -1,7 +1,13 @@
-npx hardhat console --network shibuya
-> const Box = await ethers.getContractFactory("Box")
+npx hardhat run --network shiden scripts/deploy.js
+
+npx hardhat console --network shiden
+> const BulkToken = await ethers.getContractFactory("BulkToken")
 undefined
-> const box = await Box.attach("0xf07D0631adB3F2B4a5C7128F57186178D9e4e964")
+> const bulkToken = await BulkToken.attach("0x6Af8073584494ad9219f6d52522585120589872c")
 undefined
-> (await box.retrieve()).toString()
-'42'
+> const tx = await bulkToken.getVersion()
+> receipt = await tx.wait()
+> receipt.events[0].data
+> await bulkToken.owner()
+> await upgrades.erc1967.getImplementationAddress("0x6Af8073584494ad9219f6d52522585120589872c")
+'0x9452DF21eeAac61da490de821158791C296C27dB'
